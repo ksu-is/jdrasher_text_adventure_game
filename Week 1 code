@@ -1,0 +1,63 @@
+# Python Text Adventure
+# Jacob Drasher
+
+import cmd
+import textwrap
+import sys
+import os
+import time
+import random
+
+screen_width = 100
+
+# Player Setup
+class player: # class creates objects
+	def __init__(self):
+		self.name = ''
+		self.hp = 0
+		self.mp = 0
+		self.status_effects = [] #empty array
+player_character = player()
+
+# Title Screen
+def title_screen_selections():
+	option = input("> ")
+	if option.lower() == ("play"):
+		start_game() # placeholder text for now
+	elif option.lower() == ("help"):
+		help_menu()  
+	elif option.lower() == ("quit"):
+		sys.exit() # comes from the sys command we imported
+	while option.lower() not in ['play', 'help', 'quit']: # not in will look for these inputs by the user, 
+                                                     # if these inputs are not selected it will continue looping until they are
+		print("Please enter a valid command.")
+		option = input("> ")
+		if option.lower() == ("play"):
+		start_game() # placeholder for now
+		elif option.lower() == ("help"):
+		help_menu()
+		elif option.lower() == ("quit"):
+		sys.exit()
+
+def title_screen():
+	os.system('clear') # types clear into command prompt automatically, makes a clean title screen to start with.
+	print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+	print('~ Welcome to the Doors of Mysteries Text Based Adventure Game')
+	print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+	print('                       ~ Play ~                              ')
+	print('                       ~ Help ~                              ')
+	print('                       ~ Quit ~                              ')
+	title_screen_selections()
+# this is what the user/player is going to see
+
+def help_menu():
+	print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+	print('~                 This is the help menu                     ~')
+	print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+	print('- In order to do this, use this command: ') #placeholder text for now
+	print('- In order to do this, use this command: ')
+	print('- In order to do this, use this command: ')
+	print('- In order to do this, use this command: ')
+
+	def start_game():
+
