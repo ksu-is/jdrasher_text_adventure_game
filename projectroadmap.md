@@ -6,7 +6,17 @@
        Code does not need to run, just needs to have a set place and have some elements of the componenet written in.
 
 # Week 2 Tasks
-1. [] Placeholder
+1. [] Create Map
+   []  - Create a visulation of the map
+   []  - Each tile has a different command choice the player must follow
+   []  - Make a distinction between where the player succeeds and where the player fails
+
+2. [] Give the player the ability to move around the map
+   []    - Define how the player will move around the map
+   []    - Create player interactivity
+   
+3. Create the player character
+   [] - Code in input prompts for the player (various things such as asking for their name, what type of stats they will have for the journey
 
 # Week 3 Tasks
 1. [] Placeholder
