@@ -57,7 +57,7 @@ def help_menu():
 	print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 	print('- In order to move, use: up, down, left, and right ')
 	print('- In order to do a specific command you must type it out. ')
-	print('- Use "search" to inspect something ')
+	print('- Use "examine" to inspect something ')
 	title_screen_selections()
 
 def start_game(): # game functionality
@@ -67,20 +67,20 @@ def start_game(): # game functionality
 """
  a1 
 -------------
-|  |  |  |  |  
+|  |  |  |  |  a4
 -------------
 -------------
-|  |  |  |  |  
+|  |  |  |  |  b4
 -------------
 -------------
-|  |  |  |  |  
+|  |  |  |  |  c4
 -------------
 -------------
-|  |  |  |  |  
+|  |  |  |  |  d4
 -------------
 """
 
-# constant variables
+# constant variables # what the person will type in order to see these variables
 ZoneName = ''
 Description = "description" # description of the location
 examination = "examine" # what will be said when the player examines a room
@@ -94,9 +94,182 @@ RIGHT = 'right', 'east'
 # brackets dicate that this is a dictionary
 # Will showcase whether the player has sovled the puzzle/room correctly
 # can use this do many things 
-solved_places = {'a1': False,
-} 				   
-
+solved_places = {'a1': False, 'a2': False, 'a3': False, 'a4': False,
+				 'b1': False, 'b2': False, 'b3': False, 'b4': False,
+				 'c1': False, 'c2': False, 'c3': False, 'c4': False,
+				 'd1': False, 'd2': False, 'd3': False, 'd4': False,
+				} 				   
+# solved grid systems
 
 # map is a command in python, have to call the map 'zonemap'
-zonemap =
+# dictonary of all the zones within the map
+zonemap = {
+	'a1': { # creating a unique zone for each grid on the map.
+		ZoneName: "Top Floor Room #1",
+		Description = "description" 
+		Examination = "examine" # extra detail to reveal to the player
+		Solved = False
+		UP = '', 
+		DOWN = 'b1',		
+		LEFT = '',
+		RIGHT = 'a2',
+	},
+		'a2': { # creating a unique zone for each grid on the map.
+		ZoneName: "Top Floor Room #2",
+		Description = "description" 
+		Examination = "examine" 
+		Solved = False
+		UP = '',
+		DOWN = 'b2',
+		LEFT = 'a1',
+		RIGHT = 'a3',
+	},
+		'a3': { # creating a unique zone for each grid on the map.
+		ZoneName: "Top Floor Room #3",
+		Description = "description" 
+		Examination = "examine" 
+		Solved = False
+		UP = '',
+		DOWN = 'b3',
+		LEFT = 'a2',
+		RIGHT = 'a4',
+	},
+		'a4': { # creating a unique zone for each grid on the map.
+		ZoneName: "Top Floor Room #4",
+		Description = "description" 
+		Examination = "examine" 
+		Solved = False
+		UP = '',
+		DOWN = 'b4',
+		LEFT = 'a3',
+		RIGHT = '',
+	},
+		'b1': { # creating a unique zone for each grid on the map.
+		ZoneName: "Upper Floor Room #1",
+		Description = "description" 
+		Examination = "examine" 
+		Solved = False
+		UP = 'a1', 
+		DOWN = 'c1',
+		LEFT = '',
+		RIGHT = 'b2',
+	},
+		'b2': { # creating a unique zone for each grid on the map.
+		ZoneName: "Upper Floor Room #2 (starting room)",
+		Description = "Pitch black, cold room", 
+		Examination = "You find yourself awake within a room that is impossible to see in./nYou are unaware on how you got here." 
+		Solved = False
+		UP = 'a2',
+		DOWN = 'c2',
+		LEFT = 'b1',
+		RIGHT = 'b3',
+	},
+		'b3': { # creating a unique zone for each grid on the map.
+		ZoneName: "Upper Floor Room #3",
+		Description = "description" 
+		Examination = "examine" 
+		Solved = False
+		UP = 'a3', 
+		DOWN = 'c3',
+		LEFT = 'b2',
+		RIGHT = 'b4',
+	},
+		'b4': { # creating a unique zone for each grid on the map.
+		ZoneName: "Upper Floor Room #4",
+		Description = "description" 
+		Examination = "examine" 
+		Solved = False
+		UP = 'a4',
+		DOWN = 'c4',
+		LEFT = 'b3',
+		RIGHT = '',
+	},
+		'c1': { # creating a unique zone for each grid on the map.
+		ZoneName: "Lower Floor Room #1",
+		Description = "description" 
+		Examination = "examine" 
+		Solved = False
+		UP = 'b1',
+		DOWN = 'd1',
+		LEFT = '',
+		RIGHT = 'c2',
+	},
+		'c2': { # creating a unique zone for each grid on the map.
+		ZoneName: "Lower Floor Room #2",
+		Description = "description" 
+		Examination = "examine" 
+		Solved = False
+		UP = 'b2',
+		DOWN = 'd2',
+		LEFT = 'c1',
+		RIGHT = 'c3',
+	},
+		'c3': { # creating a unique zone for each grid on the map.
+		ZoneName: "Lower Floor Room #3",
+		Description = "description" 
+		Examination = "examine" 
+		Solved = False
+		UP = 'b3', 
+		DOWN = 'd3',
+		LEFT = 'c2',
+		RIGHT = 'c4',
+	},
+		'c4': { # creating a unique zone for each grid on the map.
+		ZoneName: "Lower Floor Room #4",
+		Description = "description" 
+		Examination = "examine" 
+		Solved = False
+		UP = 'b4',
+		DOWN = 'd4',
+		LEFT = 'c3',
+		RIGHT = '',
+	},
+		'd1': { # creating a unique zone for each grid on the map.
+		ZoneName: "Bottom Floor Room #1",
+		Description = "description" 
+		Examination = "examine" 
+		Solved = False
+		UP = 'c1',
+		DOWN = '',
+		LEFT = '',
+		RIGHT = 'd2',
+	},
+		'd2': { # creating a unique zone for each grid on the map.
+		ZoneName: "Bottom Floor Room #2",
+		Description = "description" 
+		Examination = "examine" 
+		Solved = False
+		UP = 'c2',
+		DOWN = '',
+		LEFT = 'd1',
+		RIGHT = 'd3',
+	},
+		'd3': { # creating a unique zone for each grid on the map.
+		ZoneName: "Bottom Floor Room #3",
+		Description = "description" 
+		Examination = "examine" 
+		Solved = False
+		UP = 'c3', 
+		DOWN = '',
+		LEFT = 'd2',
+		RIGHT = 'd4',
+	},
+		'd4': { # creating a unique zone for each grid on the map.
+		ZoneName: "Bottom Floor Room #4",
+		Description = "description" 
+		Examination = "examine" 
+		Solved = False
+		UP = 'c4', 
+		DOWN = '',
+		LEFT = 'd3',
+		RIGHT = '',
+	},
+}
+
+
+
+
+
+
+
+
