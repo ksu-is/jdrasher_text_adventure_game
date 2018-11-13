@@ -7,8 +7,11 @@
 
 # Week 2 Tasks
 1. [] Create Map
+
    []  1a. Create a visualization of the map
+   
    []  1b. Each tile has a different command choice the player must follow
+   
    []  1c. Make a distinction between where the player succeeds and where the player fails
 
 2. [] Give the player the ability to move around the map
