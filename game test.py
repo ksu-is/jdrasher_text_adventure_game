@@ -19,7 +19,7 @@ class player: # class creates objects
 		self.mp = 0
 		self.status_effects = [] #empty array
 		self.location = 'start'
-player_character = player()
+myPlayer = player()
 
 # Title Screen
 def title_screen_selections():
@@ -59,8 +59,6 @@ def help_menu():
 	print('- In order to do a specific command you must type it out. ')
 	print('- Use "examine" to inspect something ')
 	title_screen_selections()
-
-def start_game(): # game functionality
 
 
 # Visual of the player map
@@ -266,10 +264,52 @@ zonemap = {
 	},
 }
 
+# Game Interactivity
+def print_location(): # makes a pretty picture of where the player is
+	print('\n' + ('#' * (4 + len(myPlayer.location))))
+	print('# ' + myPlayer.location.upper() + ' #')
+	print('# ' + zonemap[myPlayer.position][Description] + ' #') # grabs the description of the player's location
+	print('\n' + ('#' * (4 + len(myPlayer.location))))
+# visual example of the above code^^^
+#########
+# APPLE #
+#########
+
+def prompt(): # prompts the player on what type of move they will make
+	print("\n" + "============================")
+	print("what would you like to do?")
+	action = input("> ")
+	acceptable_actions = ['move','go', 'travel', 'walk', 'quit', 'examine', 'inspect', 'interact', 'look']
+	# acceptptable_actions are a list of good actions to do, 
+	# if they player does not choose one of these, the player will be forced to choose one.
+	while action.lower() not in acceptable_actions
+		print("Unknown action, try again.\n")
+		action = input("> ")
+	if action.lower() == 'quit':
+		sys.exit()
+	elif action.lower() in ['move', 'go', 'travel', 'walk']:
+		player_move(action.lower())
+	elif action.lower() in ['examine', 'inspect', 'interact', 'look']:
+		player_examine(action.lower())
+	# what the player will be interacting with the most
+	# where the player is prompt to do everything
+
+def player_move(myAction):
+	ask = "Where would you like to move to?\n"
+	destination = input(ask) # takes the input the person gives after ask to move them to their destination
+	if destination in ['up', 'north']:
+	elif destination in []
+	elif destination in []
+	elif destination in []
+	
 
 
 
 
+
+# Game Functionality
+def start_game(): 
+	return
 
 
 
