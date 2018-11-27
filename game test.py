@@ -298,13 +298,29 @@ def player_move(myAction):
 	ask = "Where would you like to move to?\n"
 	destination = input(ask) # takes the input the person gives after ask to move them to their destination
 	if destination in ['up', 'north']:
-	elif destination in []
-	elif destination in []
-	elif destination in []
+		destination = zonemap[myPlayer.location][UP]
+		movement_handler(destination)
+	elif destination in ['left', 'west']:
+		destination = zonemap[myPlayer.location][LEFT]
+		movement_handler(destination)
+	elif destination in ['east', 'right']:
+		destination = zonemap[myPlayer.location][RIGHT]
+		movement_handler(destination)
+	elif destination in ['south', 'down']:
+		destination = zonemap[myPlayer.location][DOWN]
+		movement_handler(destination)
 	
+def movement_handler(destination):
+	print("\n" + "You have moed to the " + destination + ".")
+	myPlayer.location = destination
+	print_location()
 
-
-
+def player_examine(action):
+	if zonemap[myPlayer.location][SOLVED]: # assumes automatically true
+		print("You have already exhausted this zone.")
+	else:
+		print("You can trigger puzzle/event here.")
+	
 
 
 # Game Functionality
