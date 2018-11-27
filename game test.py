@@ -15,13 +15,14 @@ screen_width = 100
 class player: # class creates objects
 	def __init__(self):
 		self.name = ''
+		self.background = ''
 		self.hp = 0
-		self.mp = 0
 		self.status_effects = [] #empty array
 		self.location = 'start'
+		self.game_over = False # defining whether the player won the game or not.
 myPlayer = player()
 
-# Title Screen
+# Title Screen 
 def title_screen_selections():
 	option = input("> ")
 	if option.lower() == ("play"):
@@ -40,6 +41,7 @@ def title_screen_selections():
 		elif option.lower() == ("quit"):
 		sys.exit()
 
+# This is what title_screen() at the bottom calls #
 def title_screen():
 	os.system('clear') # types clear into command prompt automatically, makes a clean title screen to start with.
 	print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
@@ -48,7 +50,7 @@ def title_screen():
 	print('                     ~    Play   ~                              ')
 	print('                     ~  Control  ~                              ')
 	print('                     ~    Quit   ~                              ')
-	title_screen_selections()
+	title_screen_selections() # calls the title_screen_selections function above
 # this is what the user/player is going to see
 
 def help_menu():
@@ -59,7 +61,7 @@ def help_menu():
 	print('- In order to do a specific command you must type it out. ')
 	print('- Use "examine" to inspect something ')
 	title_screen_selections()
-
+# The help/control menu the player is going to see
 
 # Visual of the player map
 """
@@ -320,12 +322,63 @@ def player_examine(action):
 		print("You have already exhausted this zone.")
 	else:
 		print("You can trigger puzzle/event here.")
-	
-
 
 # Game Functionality
 def start_game(): 
 	return
+
+def main_game_loop():
+	while myPlayer.game_over is False: # IMPORTANT this is what makes the game work
+		prompt()
+		# here handle if puzzles have been solved, enemy/obstacle defeated, exploration check, etc.
+
+def setup_game()
+	os.system('clear')
+
+	# Getting the user's name
+	question1 = "Hello, what's your name?\n"
+	for character in question1:
+		sys.stdout.write(character)
+		sys.stdout.flush()
+		time.sleep(0.05)
+	# this is saying for each character in question1, that the program will write it out, 
+	# flush it out, and then put a time delay on it. It gives a natural reading effect.
+	player_name = input("> ")
+	myPlayer.name = player_name
+
+	question2 = "Now, which of these best describe who you are?\n"
+	questions2extra = "(You can be any of the following: olympic swimmer, nature lover, or someone who can handle the heat)"
+	for character in question2:
+		sys.stdout.write(character)
+		sys.stdout.flush()
+		time.sleep(0.05)
+	for character in question2extra:
+		sys.stdout.write(character)
+		sys.stdout.flush()
+		time.sleep(0.01)
+	player_background = input("> ")
+	valid_backgrounds = ['olympic swimmer', 'nature lover', 'someone who can handle the heat']
+	if player_background.lower() in valid_backgrounds:
+		myPlayer.background = player_background
+		print("You are now a " + player_job + "!\n")
+	while player_background.lower() not in valid_backgrounds:
+		player_background = input("> ")
+		if player_background.lower() in valid_backgrounds:
+			myPlayer.background = player_background
+			print("You are now a " + player_job + "!\n")
+
+# Player stats
+if myPlayer.background is 'olympic simmwer':
+	self.hp = 100
+elif myPlayer.background is 'nature lover':
+	self.hp = 70
+elif myPlayer.background is 'someone who can handle the heat':
+	self.hp = 80
+
+
+
+title_screen() # intializes the game, calls the title screen.
+
 
 
 
