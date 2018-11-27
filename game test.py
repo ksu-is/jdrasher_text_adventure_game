@@ -375,6 +375,12 @@ elif myPlayer.background is 'nature lover':
 elif myPlayer.background is 'someone who can handle the heat':
 	self.hp = 80
 
+# Introduction for the player
+	question3 = "Welcome, " + player_name + " the " + player_background ".\n"
+	for character in question1:
+		sys.stdout.write(character)
+		sys.stdout.flush()
+		time.sleep(0.05)
 
 
 title_screen() # intializes the game, calls the title screen.
