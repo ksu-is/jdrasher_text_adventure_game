@@ -18,7 +18,7 @@ class player: # class creates objects
 		self.background = ''
 		self.hp = 0
 		self.status_effects = [] #empty array
-		self.location = 'start'
+		self.location = 'b2'
 		self.game_over = False # defining whether the player won the game or not.
 myPlayer = player()
 
@@ -53,12 +53,12 @@ def title_screen():
 	title_screen_selections() # calls the title_screen_selections function above
 # this is what the user/player is going to see
 
-def help_menu():
+def control_menu():
 	print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 	print('~                 This is the control menu                  ~')
 	print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
-	print('- In order to move, use: up, down, left, and right ')
 	print('- In order to do a specific command you must type it out. ')
+	print('- In order to change location, first type move, then type: up, down, left, and right ')
 	print('- Use "examine" to inspect something ')
 	title_screen_selections()
 # The help/control menu the player is going to see
@@ -270,7 +270,7 @@ zonemap = {
 def print_location(): # makes a pretty picture of where the player is
 	print('\n' + ('#' * (4 + len(myPlayer.location))))
 	print('# ' + myPlayer.location.upper() + ' #')
-	print('# ' + zonemap[myPlayer.position][Description] + ' #') # grabs the description of the player's location
+	print('# ' + zonemap[myPlayer.location][Description] + ' #') # grabs the description of the player's location
 	print('\n' + ('#' * (4 + len(myPlayer.location))))
 # visual example of the above code^^^
 #########
@@ -313,12 +313,12 @@ def player_move(myAction):
 		movement_handler(destination)
 	
 def movement_handler(destination):
-	print("\n" + "You have moed to the " + destination + ".")
+	print("\n" + "You have moved to " + destination + ".")
 	myPlayer.location = destination
 	print_location()
 
 def player_examine(action):
-	if zonemap[myPlayer.location][SOLVED]: # assumes automatically true
+	if zonemap[myPlayer.location][Solved]: # assumes automatically true
 		print("You have already exhausted this zone.")
 	else:
 		print("You can trigger puzzle/event here.")
@@ -357,20 +357,16 @@ def setup_game():
 	valid_backgrounds = ['olympic swimmer', 'nature lover', 'someone who can handle the heat']
 	if player_background.lower() in valid_backgrounds:
 		myPlayer.background = player_background
-		print("You are now a " + player_background + "!\n")
+		print("You are now a(n) " + player_background + "!\n")
 	while player_background.lower() not in valid_backgrounds:
+		print("Please choose one of the three backgrounds listed above.")
 		player_background = input("> ")
 		if player_background.lower() in valid_backgrounds:
 			myPlayer.background = player_background
 			print("You are now a(n) " + player_background + "!\n")
 
 # Player stats
-if myPlayer.background is 'olympic simmwer':
-	self.hp = 100
-elif myPlayer.background is 'nature lover':
-	self.hp = 70
-elif myPlayer.background is 'someone who can handle the heat':
-	self.hp = 80
+
 
 # Introduction for the player
 	question3 = "Welcome, " + player_name + " the " + player_background + ".\n"
@@ -379,10 +375,10 @@ elif myPlayer.background is 'someone who can handle the heat':
 		sys.stdout.flush()
 		time.sleep(0.05)
 
-	speech1 = "You awake in a house that does not belong to you...not being able to remember how you got there."
-	speech2 = "The air is cold and the room is dark...You have a strong urge to get out of here."
-	speech3 = "(The goal of the game is to find the exit room and leave this place)"
-	speech4 = "(Good luck!)"
+	speech1 = "You awake in a house that does not belong to you...not being able to remember how you got there.\n"
+	speech2 = "The air is cold and the room is dark...You have a strong urge to get out of here.\n"
+	speech3 = "(The goal of the game is to find the exit room and leave this place)\n"
+	speech4 = "(Good luck!)\n"
 	for character in speech1:
 		sys.stdout.write(character)
 		sys.stdout.flush()
@@ -398,7 +394,7 @@ elif myPlayer.background is 'someone who can handle the heat':
 	for character in speech4:
 		sys.stdout.write(character)
 		sys.stdout.flush()
-		time.sleep(0.02)
+		time.sleep(0.04)
 
 	os.system('clear')
 	print('#########################')
