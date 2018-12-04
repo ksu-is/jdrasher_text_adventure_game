@@ -83,7 +83,7 @@ def control_menu():
 # constant variables # what the person will type in order to see these variables
 ZoneName = ''
 Description = "description" # description of the location
-examination = "examine" # what will be said when the player examines a room
+Examination = "examine" # what will be said when the player examines a room
 Solved = False,
 UP = 'up', 'north' # these help the player move around the map
 DOWN = 'down', 'south'
@@ -157,7 +157,7 @@ zonemap = {
 		'b2': { # creating a unique zone for each grid on the map.
 		ZoneName: "Upper Floor Room #2 (starting room)",
 		Description: "Pitch black, cold room", 
-		Examination: "You find yourself awake within a room that is impossible to see in. You are unaware on how you got here." 
+		Examination: "You find yourself awake within a room that is impossible to see in. You are unaware on how you got here.", 
 		Solved: False,
 		UP: 'a2',
 		DOWN: 'c2',
@@ -270,7 +270,7 @@ zonemap = {
 def print_location(): # makes a pretty picture of where the player is
 	print('\n' + ('#' * (4 + len(myPlayer.location))))
 	print('# ' + myPlayer.location.upper() + ' #')
-	print('# ' + zonemap[myPlayer.position][Description] + ' #') # grabs the description of the player's location
+	print('# ' + zonemap[myPlayer.location][Description] + ' #') # grabs the description of the player's location
 	print('\n' + ('#' * (4 + len(myPlayer.location))))
 # visual example of the above code^^^
 #########
@@ -284,7 +284,7 @@ def prompt(): # prompts the player on what type of move they will make
 	acceptable_actions = ['move','go', 'travel', 'walk', 'quit', 'examine', 'inspect', 'interact', 'look']
 	# acceptptable_actions are a list of good actions to do, 
 	# if they player does not choose one of these, the player will be forced to choose one.
-	while action.lower() not in acceptable_actions
+	while action.lower() not in acceptable_actions:
 		print("Unknown action, try again.\n")
 		action = input("> ")
 	if action.lower() == 'quit':
@@ -318,7 +318,7 @@ def movement_handler(destination):
 	print_location()
 
 def player_examine(action):
-	if zonemap[myPlayer.location][SOLVED]: # assumes automatically true
+	if zonemap[myPlayer.location][Solved]: # assumes automatically true
 		print("You have already exhausted this zone.")
 	else:
 		print("You can trigger puzzle/event here.")
@@ -329,7 +329,7 @@ def main_game_loop():
 		prompt()
 		# here handle if puzzles have been solved, enemy/obstacle defeated, exploration check, etc.
 
-def setup_game()
+def setup_game():
 	os.system('clear')
 
 	# Getting the user's name
@@ -344,12 +344,12 @@ def setup_game()
 	myPlayer.name = player_name
 
 	question2 = "Now, which of these best describe who you are?\n"
-	questions2extra = "(You can be any of the following: olympic swimmer, nature lover, or someone who can handle the heat)"
+	questions2extra = "(You can be any of the following: olympic swimmer, nature lover, \nor someone who can handle the heat)\n"
 	for character in question2:
 		sys.stdout.write(character)
 		sys.stdout.flush()
 		time.sleep(0.05)
-	for character in question2extra:
+	for character in questions2extra:
 		sys.stdout.write(character)
 		sys.stdout.flush()
 		time.sleep(0.01) #question2extra's characters will come out quicker than quesiton2
@@ -357,24 +357,24 @@ def setup_game()
 	valid_backgrounds = ['olympic swimmer', 'nature lover', 'someone who can handle the heat']
 	if player_background.lower() in valid_backgrounds:
 		myPlayer.background = player_background
-		print("You are now a " + player_job + "!\n")
+		print("You are now a " + player_background + "!\n")
 	while player_background.lower() not in valid_backgrounds:
 		player_background = input("> ")
 		if player_background.lower() in valid_backgrounds:
 			myPlayer.background = player_background
-			print("You are now a " + player_job + "!\n")
+			print("You are now a " + player_background + "!\n")
 
 # Introduction for the player
-	question3 = "Welcome, " + player_name + " the " + player_background ".\n"
+	question3 = "Welcome, " + player_name + " the " + player_background + ".\n"
 	for character in question3:
 		sys.stdout.write(character)
 		sys.stdout.flush()
 		time.sleep(0.05)
 
-	speech1 = "You awake in a house that does not belong to you...not being able to remember how you got there."
-	speech2 = "The air is cold and the room is dark...You have a strong urge to get out of here."
-	speech3 = "(The goal of the game is to find the exit room and leave this place)"
-	speech4 = "(Good luck!)"
+	speech1 = "You awake in a house that does not belong to you...not being able to remember how you got there\n"
+	speech2 = "The air is cold and the room is dark...You have a strong urge to get out of here.\n"
+	speech3 = "(The goal of the game is to find the exit room and leave this place)\n"
+	speech4 = "(Good luck!)\n"
 	for character in speech1:
 		sys.stdout.write(character)
 		sys.stdout.flush()
