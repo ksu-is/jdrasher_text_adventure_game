@@ -18,7 +18,7 @@ class player: # class creates objects
 		self.background = ''
 		self.hp = 0
 		self.status_effects = [] #empty array
-		self.location = 'start'
+		self.location = 'b2'
 		self.game_over = False # defining whether the player won the game or not.
 myPlayer = player()
 
@@ -26,7 +26,7 @@ myPlayer = player()
 def title_screen_selections():
 	option = input("> ")
 	if option.lower() == ("play"):
-		start_game() # placeholder text for now
+		setup_game() # placeholder text for now
 	elif option.lower() == ("control"):
 		control_menu()  
 	elif option.lower() == ("quit"):
@@ -35,7 +35,7 @@ def title_screen_selections():
 		print("Please enter a valid command.")
 		option = input("> ")
 		if option.lower() == ("play"):
-			start_game() # placeholder for now
+			setup_game() # placeholder for now
 		elif option.lower() == ("control"):
 			help_menu()
 		elif option.lower() == ("quit"):
@@ -53,11 +53,11 @@ def title_screen():
 	title_screen_selections() # calls the title_screen_selections function above
 # this is what the user/player is going to see
 
-def help_menu():
+def control_menu():
 	print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 	print('~                 This is the control menu                  ~')
 	print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
-	print('- In order to move, use: up, down, left, and right ')
+	print('- In order to move, type: up, down, left, and right ')
 	print('- In order to do a specific command you must type it out. ')
 	print('- Use "examine" to inspect something ')
 	title_screen_selections()
@@ -84,7 +84,7 @@ def help_menu():
 ZoneName = ''
 Description = "description" # description of the location
 examination = "examine" # what will be said when the player examines a room
-Solved = False
+Solved = False,
 UP = 'up', 'north' # these help the player move around the map
 DOWN = 'down', 'south'
 LEFT = 'left', 'west'
@@ -106,9 +106,9 @@ solved_places = {'a1': False, 'a2': False, 'a3': False, 'a4': False,
 zonemap = {
 	'a1': { # creating a unique zone for each grid on the map.
 		ZoneName: "Top Floor Room #1",
-		Description: "description" 
-		Examination: "examine" # extra detail to reveal to the player
-		Solved: False
+		Description: "description", 
+		Examination: "examine", # extra detail to reveal to the player
+		Solved: False,
 		UP: '', 
 		DOWN: 'b1',		
 		LEFT: '',
@@ -116,9 +116,9 @@ zonemap = {
 	},
 		'a2': { # creating a unique zone for each grid on the map.
 		ZoneName: "Top Floor Room #2",
-		Description: "description" 
-		Examination: "examine" 
-		Solved: False
+		Description: "description", 
+		Examination: "examine", 
+		Solved: False,
 		UP: '',
 		DOWN: 'b2',
 		LEFT: 'a1',
@@ -126,9 +126,9 @@ zonemap = {
 	},
 		'a3': { # creating a unique zone for each grid on the map.
 		ZoneName: "Top Floor Room #3",
-		Description: "description" 
-		Examination: "examine" 
-		Solved: False
+		Description: "description", 
+		Examination: "examine", 
+		Solved: False,
 		UP: '',
 		DOWN: 'b3',
 		LEFT: 'a2',
@@ -136,9 +136,9 @@ zonemap = {
 	},
 		'a4': { # creating a unique zone for each grid on the map.
 		ZoneName: "Top Floor Room #4",
-		Description: "description" 
-		Examination: "examine" 
-		Solved: False
+		Description: "description", 
+		Examination: "examine", 
+		Solved: False,
 		UP: '',
 		DOWN: 'b4',
 		LEFT: 'a3',
@@ -146,9 +146,9 @@ zonemap = {
 	},
 		'b1': { # creating a unique zone for each grid on the map.
 		ZoneName: "Upper Floor Room #1",
-		Description: "description" 
-		Examination: "examine" 
-		Solved: False
+		Description: "description", 
+		Examination: "examine", 
+		Solved: False,
 		UP: 'a1', 
 		DOWN: 'c1',
 		LEFT: '',
@@ -157,8 +157,8 @@ zonemap = {
 		'b2': { # creating a unique zone for each grid on the map.
 		ZoneName: "Upper Floor Room #2 (starting room)",
 		Description: "Pitch black, cold room", 
-		Examination: "You find yourself awake within a room that is impossible to see in./nYou are unaware on how you got here." 
-		Solved: False
+		Examination: "You find yourself awake within a room that is impossible to see in. You are unaware on how you got here." 
+		Solved: False,
 		UP: 'a2',
 		DOWN: 'c2',
 		LEFT: 'b1',
@@ -166,9 +166,9 @@ zonemap = {
 	},
 		'b3': { # creating a unique zone for each grid on the map.
 		ZoneName: "Upper Floor Room #3",
-		Description: "description" 
-		Examination: "examine" 
-		Solved: False
+		Description: "description", 
+		Examination: "examine", 
+		Solved: False,
 		UP: 'a3', 
 		DOWN: 'c3',
 		LEFT: 'b2',
@@ -176,9 +176,9 @@ zonemap = {
 	},
 		'b4': { # creating a unique zone for each grid on the map.
 		ZoneName: "Upper Floor Room #4",
-		Description: "description" 
-		Examination: "examine" 
-		Solved: False
+		Description: "description", 
+		Examination: "examine", 
+		Solved: False,
 		UP: 'a4',
 		DOWN: 'c4',
 		LEFT: 'b3',
@@ -186,9 +186,9 @@ zonemap = {
 	},
 		'c1': { # creating a unique zone for each grid on the map.
 		ZoneName: "Lower Floor Room #1",
-		Description: "description" 
-		Examination: "examine" 
-		Solved: False
+		Description: "description", 
+		Examination: "examine", 
+		Solved: False,
 		UP: 'b1',
 		DOWN: 'd1',
 		LEFT: '',
@@ -196,9 +196,9 @@ zonemap = {
 	},
 		'c2': { # creating a unique zone for each grid on the map.
 		ZoneName: "Lower Floor Room #2",
-		Description: "description" 
-		Examination: "examine" 
-		Solved: False
+		Description: "description", 
+		Examination: "examine", 
+		Solved: False,
 		UP: 'b2',
 		DOWN: 'd2',
 		LEFT: 'c1',
@@ -206,9 +206,9 @@ zonemap = {
 	},
 		'c3': { # creating a unique zone for each grid on the map.
 		ZoneName: "Lower Floor Room #3",
-		Description: "description" 
-		Examination: "examine" 
-		Solved: False
+		Description: "description", 
+		Examination: "examine", 
+		Solved: False,
 		UP: 'b3', 
 		DOWN: 'd3',
 		LEFT: 'c2',
@@ -216,9 +216,9 @@ zonemap = {
 	},
 		'c4': { # creating a unique zone for each grid on the map.
 		ZoneName: "Lower Floor Room #4",
-		Description: "description" 
-		Examination: "examine" 
-		Solved: False
+		Description: "description", 
+		Examination: "examine", 
+		Solved: False,
 		UP: 'b4',
 		DOWN: 'd4',
 		LEFT: 'c3',
@@ -226,9 +226,9 @@ zonemap = {
 	},
 		'd1': { # creating a unique zone for each grid on the map.
 		ZoneName: "Bottom Floor Room #1",
-		Description: "description" 
-		Examination: "examine" 
-		Solved: False
+		Description: "description", 
+		Examination: "examine", 
+		Solved: False,
 		UP: 'c1',
 		DOWN: '',
 		LEFT: '',
@@ -236,9 +236,9 @@ zonemap = {
 	},
 		'd2': { # creating a unique zone for each grid on the map.
 		ZoneName: "Bottom Floor Room #2",
-		Description: "description" 
-		Examination: "examine" 
-		Solved: False
+		Description: "description", 
+		Examination: "examine", 
+		Solved: False,
 		UP: 'c2',
 		DOWN: '',
 		LEFT: 'd1',
@@ -246,9 +246,9 @@ zonemap = {
 	},
 		'd3': { # creating a unique zone for each grid on the map.
 		ZoneName: "Bottom Floor Room #3",
-		Description: "description" 
-		Examination: "examine" 
-		Solved: False
+		Description: "description", 
+		Examination: "examine", 
+		Solved: False,
 		UP: 'c3', 
 		DOWN: '',
 		LEFT: 'd2',
@@ -256,9 +256,9 @@ zonemap = {
 	},
 		'd4': { # creating a unique zone for each grid on the map.
 		ZoneName: "Bottom Floor Room #4",
-		Description: "description" 
-		Examination: "examine" 
-		Solved: False
+		Description: "description", 
+		Examination: "examine", 
+		Solved: False,
 		UP: 'c4', 
 		DOWN: '',
 		LEFT: 'd3',
@@ -324,9 +324,6 @@ def player_examine(action):
 		print("You can trigger puzzle/event here.")
 
 # Game Functionality
-def start_game(): 
-	return
-
 def main_game_loop():
 	while myPlayer.game_over is False: # IMPORTANT this is what makes the game work
 		prompt()
