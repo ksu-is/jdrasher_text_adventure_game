@@ -313,7 +313,7 @@ def player_move(myAction):
 		movement_handler(destination)
 	
 def movement_handler(destination):
-	print("\n" + "You have moed to the " + destination + ".")
+	print("\n" + "You have moved to " + destination + ".")
 	myPlayer.location = destination
 	print_location()
 
