@@ -84,7 +84,7 @@ def control_menu():
 ZoneName = ''
 Description = "description" # description of the location
 Examination = "examine" # what will be said when the player examines a room
-Solved = False
+Solved = False,
 UP = 'up', 'north' # these help the player move around the map
 DOWN = 'down', 'south'
 LEFT = 'left', 'west'
@@ -106,8 +106,8 @@ solved_places = {'a1': False, 'a2': False, 'a3': False, 'a4': False,
 zonemap = {
 	'a1': { # creating a unique zone for each grid on the map.
 		ZoneName: "Top Floor Room #1",
-		Description:  "You find yourself standing on a long, yet thin stone bridge.", 
-		Examination:  "Upon further inspection, you realize there is water on both sides of the bridge.\n You also notice that you can not continue up or left." # extra detail to reveal to the player
+		Description: "You find yourself standing on a long, yet thin stone bridge.", 
+		Examination: "Upon further inspection, you realize there is water on both sides of the bridge." # extra detail to reveal to the player
 		Solved:  False,
 		UP: '', 
 		DOWN: 'b1',		
@@ -117,7 +117,7 @@ zonemap = {
 		'a2': { # creating a unique zone for each grid on the map.
 		ZoneName: "Top Floor Room #2",
 		Description:  "You find yourself standing on a tiny surface, in front of you seems to be a big pond.", 
-		Examination:  "Looking down into the pond indicates it goes down for what looks like forever.\n Looking up indicates that you can no longer in that direction.", 
+		Examination:  "Looking down into the pond indicates it goes down for what looks like forever", 
 		Solved:  False,
 		UP:  '',
 		DOWN:  'b2',
@@ -127,7 +127,7 @@ zonemap = {
 		'a3': { # creating a unique zone for each grid on the map.
 		ZoneName: "Top Floor Room #3",
 		Description:  "As you enter the room you fall into a body of water...It feels very cold", 
-		Examination:  "This room has lights all attached, you can see which direciton leads where.\n Looking up indicates that you can no longer in that direction, everywhere else seems to continue.", 
+		Examination:  "This room has lights all attached, you can see which direciton leads where.", 
 		Solved:  False,
 		UP:  '',
 		DOWN:  'b3',
@@ -147,7 +147,7 @@ zonemap = {
 		'b1': { # creating a unique zone for each grid on the map.
 		ZoneName: "Upper Floor Room #1",
 		Description:  "This room is completely dark", 
-		Examination:  "As feel your way through the room, sticking close to the walls, you notice some of the stones witin the wall are loose...\nPerhaps it would be best not to push down too hard on those ones.", 
+		Examination:  "As feel your way through the room, sticking close to the walls, you notice some of the stones witin the wall are loose...", 
 		Solved:  False,
 		UP:  'a1', 
 		DOWN:  'c1',
@@ -226,7 +226,7 @@ zonemap = {
 	},
 		'd1': { # creating a unique zone for each grid on the map.
 		ZoneName: "Bottom Floor Room #1",
-		Description:  "Entering this room feels like you are burning alive...\n You need to get out of here fast.", 
+		Description:  "Entering this room feels like you are burning alive...", 
 		Examination:  "You notice lava pouring out of the walls in this room...", 
 		Solved:  False,
 		UP:  'c1',
@@ -237,7 +237,7 @@ zonemap = {
 		'd2': { # creating a unique zone for each grid on the map.
 		ZoneName: "Bottom Floor Room #2",
 		Description:  "As you enter the room, you feel an intense heat wave come over you.", 
-		Examination:  "Upon further inspection, you notice that the room's floor is made up of sand.\nThe sand seems to be blocking the way down, you'll have to go up, left or right.", 
+		Examination:  "Upon further inspection, you notice that the room's floor is made up of sand.", 
 		Solved:  False,
 		UP:  'c2',
 		DOWN:  '',
