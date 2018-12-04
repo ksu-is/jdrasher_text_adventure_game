@@ -16,7 +16,7 @@
 
 2. [x] Give the player the ability to move around the map [Done]
    
-3. Create the player character [Done]
+[x] Create the player character [Done]
 
    [x] 3a. Code in input prompts for the user to define their player character (various things such as asking for their name, what type of stats they will have for the journey) [Done]
 
