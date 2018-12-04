@@ -367,14 +367,6 @@ def setup_game()
 			myPlayer.background = player_background
 			print("You are now a " + player_job + "!\n")
 
-# Player stats
-if myPlayer.background is 'olympic simmwer':
-	self.hp = 100
-elif myPlayer.background is 'nature lover':
-	self.hp = 70
-elif myPlayer.background is 'someone who can handle the heat':
-	self.hp = 80
-
 # Introduction for the player
 	question3 = "Welcome, " + player_name + " the " + player_background ".\n"
 	for character in question3:
@@ -397,11 +389,11 @@ elif myPlayer.background is 'someone who can handle the heat':
 	for character in speech3:
 		sys.stdout.write(character)
 		sys.stdout.flush()
-		time.sleep(0.05)
+		time.sleep(0.06)
 	for character in speech4:
 		sys.stdout.write(character)
 		sys.stdout.flush()
-		time.sleep(0.02)
+		time.sleep(0.04)
 
 	os.system('clear')
 	print('#########################')
